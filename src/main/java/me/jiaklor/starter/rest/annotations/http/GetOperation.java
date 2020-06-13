@@ -1,4 +1,4 @@
-package me.jiaklor.starter.rest.annotations.oas.http;
+package me.jiaklor.starter.rest.annotations.http;
 
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;
@@ -18,10 +18,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Operation
-@RequestMapping
+@RequestMapping(method = {RequestMethod.GET})
 @Target({ElementType.TYPE, ElementType.METHOD, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface HttpOperation {
+public @interface GetOperation {
     @AliasFor(annotation = RequestMapping.class)
     String name() default "";
 
@@ -30,9 +30,6 @@ public @interface HttpOperation {
 
     @AliasFor(annotation = RequestMapping.class, value = "value")
     String[] path() default {};
-
-    @AliasFor(annotation = RequestMapping.class)
-    RequestMethod[] method() default {};
 
     @AliasFor(annotation = RequestMapping.class)
     String[] params() default {};
@@ -45,9 +42,6 @@ public @interface HttpOperation {
 
     @AliasFor(annotation = RequestMapping.class)
     String[] produces() default {};
-
-    @AliasFor(annotation = Operation.class, value = "method")
-    String opMethod() default "";
 
     @AliasFor(annotation = Operation.class)
     String[] tags() default {};

@@ -1,5 +1,6 @@
 package me.jiaklor.starter.rest.operations;
 
+import lombok.SneakyThrows;
 import me.jiaklor.starter.rest.operations.handlers.DeferredResultHandler;
 import me.jiaklor.starter.rest.operations.handlers.ResponseHandler;
 import me.jiaklor.starter.rest.operations.handlers.ResponseWithCatchHandler;
@@ -34,6 +35,7 @@ public class Rest {
         return call(responseHandler, HttpStatus.OK);
     }
 
+    @SneakyThrows
     public static <T> ResponseEntity<T> call(ResponseHandler responseHandler, HttpStatus status) {
         return new ResponseEntity<>((T) responseHandler.run(), status);
     }

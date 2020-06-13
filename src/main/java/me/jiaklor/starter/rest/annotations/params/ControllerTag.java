@@ -1,4 +1,4 @@
-package me.jiaklor.starter.rest.annotations.oas.params;
+package me.jiaklor.starter.rest.annotations.params;
 
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.extensions.Extension;

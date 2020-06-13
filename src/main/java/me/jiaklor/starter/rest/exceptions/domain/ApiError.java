@@ -37,18 +37,31 @@ public class ApiError {
         this.status = status;
     }
 
-    public ApiError(HttpStatus status, Throwable t) {
-        this();
-        this.status = status;
-        this.message = "Unexpected error";
-        this.debugMessage = t.getMessage();
-    }
-
-    public ApiError(HttpStatus status, String message, Throwable t) {
+    public ApiError(HttpStatus status, String message) {
         this();
         this.status = status;
         this.message = message;
-        this.debugMessage = t.getMessage();
+    }
+
+    public ApiError(HttpStatus status, Throwable ex) {
+        this();
+        this.status = status;
+        this.message = "Unexpected error";
+        this.debugMessage = ex.getMessage();
+    }
+
+    public ApiError(HttpStatus status, String message, Throwable ex) {
+        this();
+        this.status = status;
+        this.message = message;
+        this.debugMessage = ex.getMessage();
+    }
+
+    public ApiError(HttpStatus status, String message, String ex) {
+        this();
+        this.status = status;
+        this.message = message;
+        this.debugMessage = ex;
     }
 
     private void addSubError(ApiSubError subError) {
